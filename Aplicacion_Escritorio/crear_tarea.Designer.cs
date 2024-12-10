@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(crear_tarea));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.fechafinaltarea = new System.Windows.Forms.DateTimePicker();
@@ -39,8 +40,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tareanombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -168,6 +171,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,5 +188,6 @@
         private System.Windows.Forms.DateTimePicker fechainiciotarea;
         private System.Windows.Forms.DateTimePicker fechafinaltarea;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

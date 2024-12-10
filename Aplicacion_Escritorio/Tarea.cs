@@ -8,11 +8,12 @@ namespace Aplicacion_Escritorio
 {
     public class Tarea
     {
-        private DateTime fechaInicio { get; set; }
-        private DateTime fechaFinal { get; set; }
-        private string nombreTarea {  get; set; }
-        private List<Tarea> subtareas = new List<Tarea>();
-        private List<String> nombreColaboradores { get; set; }
+        public DateTime fechaInicio { get; set; }
+        public DateTime fechaFinal { get; set; }
+        public string nombreTarea {  get; set; }
+        public List<Tarea> subtareas = new List<Tarea>();
+        public List<String> nombreColaboradores { get; set; }
+        public string estadoTarea {  get; set; }
 
     }
 }

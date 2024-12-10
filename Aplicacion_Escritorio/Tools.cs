@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace Aplicacion_Escritorio
 {
@@ -12,17 +14,17 @@ namespace Aplicacion_Escritorio
     {
         public List<Colaborador> ObtenerColaboradores()
         {
-            List<Colaborador> colaboradores= new List<Colaborador>();
+            List<Colaborador> colaboradores = new List<Colaborador>();
 
 
 
             // Parsear el JSON como un JObject
-                 JObject parsedJson = extraerJSON();
+            JObject parsedJson = extraerJSON();
 
-                // Extraer el array "Colaboradores"
-                JArray colaboradoresArray = (JArray)parsedJson["Colaboradores"];
-                // Convertir el array a una lista de objetos Colaborador
-               colaboradores = colaboradoresArray.ToObject<List<Colaborador>>();
+            // Extraer el array "Colaboradores"
+            JArray colaboradoresArray = (JArray)parsedJson["Colaboradores"];
+            // Convertir el array a una lista de objetos Colaborador
+            colaboradores = colaboradoresArray.ToObject<List<Colaborador>>();
             return colaboradores;
         }
         public List<Proyecto> ObtenerProyectos()
@@ -38,7 +40,7 @@ namespace Aplicacion_Escritorio
         }
         public JObject extraerJSON()
         {
-            string jsonPath = "E:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json";
+            string jsonPath = "D:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json";
             List<Colaborador> colaboradores = new List<Colaborador>();
             JObject parsedJson = new JObject();
             if (File.Exists(jsonPath))
@@ -60,15 +62,33 @@ namespace Aplicacion_Escritorio
 
             }
         }
-        public void agregarObjeto(Object os,string jsonName)
+        public void agregarObjeto(Object os, string jsonName)
         {
             JObject parsedJson = extraerJSON();
             JArray colaboradoresArray = (JArray)parsedJson[jsonName];
             JObject nuevoColaborador = JObject.FromObject(os);
             colaboradoresArray.Add(nuevoColaborador);
-            File.WriteAllText("E:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json", parsedJson.ToString());
+           
+            File.WriteAllText("D:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json", parsedJson.ToString());
 
 
         }
+        public void actualizarArchivoJson<T>(List<T> listaElementos, string nombreActualizable)
+        {
+            try
+            {
+                JObject jsonObject = extraerJSON(); // Carga el archivo JSON
+                JArray listaElementosArray = JArray.FromObject(listaElementos); // Convierte la lista a JArray
+                jsonObject[nombreActualizable] = listaElementosArray; // Actualiza la clave correspondiente en el JSON
+
+                // Guarda el JSON actualizado en el archivo
+                File.WriteAllText("D:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json", jsonObject.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar el archivo JSON: {ex.Message}");
+            }
+        }
+
     }
 }

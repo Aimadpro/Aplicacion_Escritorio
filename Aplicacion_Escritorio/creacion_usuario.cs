@@ -17,9 +17,17 @@ namespace Aplicacion_Escritorio
     public partial class creacion_usuario : Form
     {
         List<Colaborador> colaboradores;
+        Tools tools = new Tools();
+
         public creacion_usuario()
         {
             InitializeComponent();
+            Tools tools = new Tools();
+            colaboradores = tools.ObtenerColaboradores();
+            foreach (var colaborador in colaboradores)
+            {
+                listaUsuarios.Items.Add(colaborador.nombre); // Aquí accedes al atributo Nombre
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -65,16 +73,31 @@ namespace Aplicacion_Escritorio
         {
             //String claveAES = generarClaveAES();
 
-            Tools tools = new Tools();
             colaboradores = tools.ObtenerColaboradores();
             Colaborador ColaboradorFinal = colaboradores.Last();
             Colaborador colaborador = new Colaborador(ColaboradorFinal.id + 1, usuariocreateText.Text, contrasenyaconfirmText.Text);
             colaboradores.Add(colaborador);
-            tools.agregarObjeto(colaborador,"Colaboradores");
+            listaUsuarios.Items.Add(colaborador.nombre); // Aquí accedes al atributo Nombre
+
+
+            MessageBox.Show("Se ha creado el usuario correctamente");
+            postCreation();
+
+
+        }
+        private void saveUserDataJson()
+        {
+            tools.actualizarArchivoJson(colaboradores, "Colaboradores");
             foreach (var colaboradors in colaboradores)
             {
                 Console.WriteLine($"Nombre: {colaboradors.nombre}, ID: {colaboradors.id}");
             }
+        }
+        private void postCreation()
+        {
+            usuariocreateText.Text = "";
+            contrasenyaconfirmText.Text = "";
+            contrasenyacreateText.Text = "";
         }
 
 
@@ -106,7 +129,7 @@ namespace Aplicacion_Escritorio
                 using (var encryptor = aes.CreateEncryptor())
                 {
                     //byte[] encryptedBytes = encryptor.TransformFinalBlock(plainBytes, 0, plainBytes.Length);
-                   // return Convert.ToBase64String(encryptedBytes); // Devolver en base64
+                    // return Convert.ToBase64String(encryptedBytes); // Devolver en base64
                 }
             }
 
@@ -118,9 +141,36 @@ namespace Aplicacion_Escritorio
         {
             Form2 form2 = new Form2();
             form2.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
-                                                                  // Crea una instancia del nuevo formulario
+            saveUserDataJson();                                                            // Crea una instancia del nuevo formulario
             this.Hide(); // Oculta el formulario actual
             form2.Show();
         }
+
+        private void eliminarUsuario_Click(object sender, EventArgs e)
+        {
+
+            if (listaUsuarios.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona un usuario para eliminar.");
+                return;
+            }
+            string usuarioSeleccionado = listaUsuarios.SelectedItem.ToString();
+
+            // Buscamos el colaborador correspondiente en la lista
+            Colaborador colaboradorAEliminar = colaboradores.FirstOrDefault(c => c.nombre == usuarioSeleccionado);
+
+            if (colaboradorAEliminar != null)
+            {
+                // Eliminamos el colaborador de la lista
+                colaboradores.Remove(colaboradorAEliminar);
+
+                // Actualizamos el ListBox
+                listaUsuarios.Items.Remove(usuarioSeleccionado);
+
+            }
+        }
     }
 }
+    
+
+

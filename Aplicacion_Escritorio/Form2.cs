@@ -14,8 +14,9 @@ namespace Aplicacion_Escritorio
 {
     public partial class Form2 : Form
     {
+        Tools tools = new Tools();
         List<Proyecto> proyectos= new List<Proyecto>();
-        List<Colaborador> colaboradores;
+         List<Colaborador> colaboradores;
         public Form2()  
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace Aplicacion_Escritorio
             Tools tools = new Tools();
             proyectos = tools.ObtenerProyectos();
             colaboradores = tools.ObtenerColaboradores();
-
+            cuadroProyectos.AutoGenerateColumns = false;
             cuadroProyectos.DataSource = proyectos;
             cuadroProyectos.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -99,6 +100,7 @@ namespace Aplicacion_Escritorio
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            tools.actualizarArchivoJson(proyectos, "Proyectos");
 
             FormNewProject formProject = new FormNewProject();
             formProject.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
@@ -121,11 +123,92 @@ namespace Aplicacion_Escritorio
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            tools.actualizarArchivoJson(proyectos, "Proyectos");
+
             creacion_usuario newForm = new creacion_usuario();
             newForm.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
                                                                   // Crea una instancia del nuevo formulario
             this.Hide(); // Oculta el formulario actual
             newForm.Show();
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            List<Proyecto> proyectosEliminar = new List<Proyecto>();
+            foreach (DataGridViewRow row in cuadroProyectos.SelectedRows)
+            {
+
+                if (row.DataBoundItem is Proyecto proyecto)
+                {
+                    proyectosEliminar.Add(proyecto);
+                }
+            }
+
+            foreach(var proyecto in proyectosEliminar)
+            {
+                proyectos.Remove(proyecto);
+
+            }
+            cuadroProyectos.DataSource = null;
+            cuadroProyectos.DataSource = proyectos;
+            tools.actualizarArchivoJson(proyectos, "Proyectos");
+
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            tools.actualizarArchivoJson(proyectos, "Proyectos");
+        }
+
+        private void pictureBox5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            Proyecto proyectoSeleccionado;  
+            if (cuadroProyectos.SelectedRows.Count ==1)
+            {
+                // Obtener la primera fila seleccionada
+                DataGridViewRow filaSeleccionada = cuadroProyectos.SelectedRows[0];
+
+                // Obtener el objeto asociado a la fila (si está enlazada a datos)
+                proyectoSeleccionado = filaSeleccionada.DataBoundItem as Proyecto;
+                Modificar_proyecto newForm = new Modificar_proyecto(proyectoSeleccionado);
+                tools.actualizarArchivoJson(proyectos, "Proyectos");
+                newForm.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
+                                                                        // Crea una instancia del nuevo formulario
+                this.Hide(); // Oculta el formulario actual
+                newForm.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila.");
+            }
+            
         }
     }
 }

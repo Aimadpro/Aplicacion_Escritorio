@@ -38,12 +38,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.usuariocreateText = new System.Windows.Forms.TextBox();
             this.contrasenyacreateText = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textoInicio = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.listaUsuarios = new System.Windows.Forms.ListBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.eliminarUsuario = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.creacionUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eliminarUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // creacionUsuario
@@ -57,7 +65,7 @@
             this.creacionUsuario.Controls.Add(this.label2);
             this.creacionUsuario.Controls.Add(this.usuariocreateText);
             this.creacionUsuario.Controls.Add(this.contrasenyacreateText);
-            this.creacionUsuario.Location = new System.Drawing.Point(767, 200);
+            this.creacionUsuario.Location = new System.Drawing.Point(82, 129);
             this.creacionUsuario.Name = "creacionUsuario";
             this.creacionUsuario.Size = new System.Drawing.Size(461, 401);
             this.creacionUsuario.TabIndex = 3;
@@ -149,6 +157,16 @@
             this.contrasenyacreateText.TabIndex = 2;
             this.contrasenyacreateText.TextChanged += new System.EventHandler(this.contrasenyaText_TextChanged);
             // 
+            // textoInicio
+            // 
+            this.textoInicio.AutoSize = true;
+            this.textoInicio.ForeColor = System.Drawing.Color.White;
+            this.textoInicio.Location = new System.Drawing.Point(79, 31);
+            this.textoInicio.Name = "textoInicio";
+            this.textoInicio.Size = new System.Drawing.Size(56, 13);
+            this.textoInicio.TabIndex = 4;
+            this.textoInicio.Text = "FocusHub";
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Aplicacion_Escritorio.Properties.Resources.log_solo_simbolo1;
@@ -160,22 +178,72 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // textoInicio
+            // listaUsuarios
             // 
-            this.textoInicio.AutoSize = true;
-            this.textoInicio.ForeColor = System.Drawing.Color.White;
-            this.textoInicio.Location = new System.Drawing.Point(79, 31);
-            this.textoInicio.Name = "textoInicio";
-            this.textoInicio.Size = new System.Drawing.Size(56, 13);
-            this.textoInicio.TabIndex = 4;
-            this.textoInicio.Text = "FocusHub";
+            this.listaUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(53)))), ((int)(((byte)(81)))));
+            this.listaUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listaUsuarios.ForeColor = System.Drawing.Color.White;
+            this.listaUsuarios.FormattingEnabled = true;
+            this.listaUsuarios.ItemHeight = 20;
+            this.listaUsuarios.Location = new System.Drawing.Point(772, 183);
+            this.listaUsuarios.Name = "listaUsuarios";
+            this.listaUsuarios.Size = new System.Drawing.Size(466, 304);
+            this.listaUsuarios.TabIndex = 22;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Aplicacion_Escritorio.Properties.Resources.recuadroProyectos;
+            this.pictureBox4.Location = new System.Drawing.Point(667, 106);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(665, 465);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(612, 212);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 12);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Eliminar usuario";
+            // 
+            // eliminarUsuario
+            // 
+            this.eliminarUsuario.Image = global::Aplicacion_Escritorio.Properties.Resources.eliminarProyecto;
+            this.eliminarUsuario.Location = new System.Drawing.Point(569, 202);
+            this.eliminarUsuario.Name = "eliminarUsuario";
+            this.eliminarUsuario.Size = new System.Drawing.Size(37, 36);
+            this.eliminarUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.eliminarUsuario.TabIndex = 27;
+            this.eliminarUsuario.TabStop = false;
+            this.eliminarUsuario.Click += new System.EventHandler(this.eliminarUsuario_Click);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Image = global::Aplicacion_Escritorio.Properties.Resources.RECUADRO1;
+            this.pictureBox11.Location = new System.Drawing.Point(549, 183);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(152, 74);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 28;
+            this.pictureBox11.TabStop = false;
             // 
             // creacion_usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(53)))), ((int)(((byte)(81)))));
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1404, 723);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.eliminarUsuario);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.listaUsuarios);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.textoInicio);
             this.Controls.Add(this.creacionUsuario);
@@ -187,6 +255,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eliminarUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +276,10 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label textoInicio;
+        private System.Windows.Forms.ListBox listaUsuarios;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox eliminarUsuario;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

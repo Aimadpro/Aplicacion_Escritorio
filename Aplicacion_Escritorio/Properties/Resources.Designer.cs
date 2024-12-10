@@ -83,6 +83,16 @@ namespace Aplicacion_Escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eliminarProyecto {
+            get {
+                object obj = ResourceManager.GetObject("eliminarProyecto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap f22def {
             get {
                 object obj = ResourceManager.GetObject("f22def", resourceCulture);
@@ -136,6 +146,16 @@ namespace Aplicacion_Escritorio.Properties {
         internal static System.Drawing.Bitmap logo2 {
             get {
                 object obj = ResourceManager.GetObject("logo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupaProyecto {
+            get {
+                object obj = ResourceManager.GetObject("lupaProyecto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +233,29 @@ namespace Aplicacion_Escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap recuadroBoton {
+            get {
+                object obj = ResourceManager.GetObject("recuadroBoton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recuadroProyectos {
             get {
                 object obj = ResourceManager.GetObject("recuadroProyectos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap salir {
+            get {
+                object obj = ResourceManager.GetObject("salir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

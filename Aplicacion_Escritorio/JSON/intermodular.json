@@ -1,93 +1,51 @@
 {
   "Proyectos": [
     {
-      "nombreProyecto": "Gestión de Aplicaciones",
-      "id": 1,
-      "idColaboradores": [
+      "tareas": null,
+      "nombreProyecto": "MOHA",
+      "id": 2,
+      "colaboradores": [
         1,
-        2,
-        3
+        3,
+        6,
+        7
       ],
-      "imagenProyecto": 101,
-      "tareas": [
-        {
-          "fechaInicio": "2024-11-01T08:00:00",
-          "fechaFinal": "2024-11-15T17:00:00",
-          "nombreTarea": "Desarrollo del Módulo de Login",
-          "subtareas": [
-            {
-              "fechaInicio": "2024-11-02T09:00:00",
-              "fechaFinal": "2024-11-10T16:00:00",
-              "nombreTarea": "Diseño de la Interfaz de Usuario",
-              "subtareas": [],
-              "nombreColaboradores": [
-                "Ana López"
-              ]
-            },
-            {
-              "fechaInicio": "2024-11-05T10:00:00",
-              "fechaFinal": "2024-11-12T15:00:00",
-              "nombreTarea": "Configuración de la Base de Datos",
-              "subtareas": [],
-              "nombreColaboradores": [
-                "Carlos García"
-              ]
-            }
-          ],
-          "nombreColaboradores": [
-            "Juan Pérez",
-            "Ana López"
-          ]
-        },
-        {
-          "fechaInicio": "2024-11-16T09:00:00",
-          "fechaFinal": "2024-11-30T17:00:00",
-          "nombreTarea": "Implementación de Pruebas Unitarias",
-          "subtareas": [],
-          "nombreColaboradores": [
-            "Juan Pérez",
-            "Carlos García"
-          ]
-        }
-      ]
+      "imagenProyecto": 0
+    },
+    {
+      "tareas": null,
+      "nombreProyecto": "MOHA",
+      "id": 3,
+      "colaboradores": [
+        1,
+        3,
+        6,
+        7
+      ],
+      "imagenProyecto": 0
+    },
+    {
+      "tareas": null,
+      "nombreProyecto": "Bruno",
+      "id": 6,
+      "colaboradores": [
+        1
+      ],
+      "imagenProyecto": 0
     }
   ],
   "Colaboradores": [
     {
       "nombre": "Juan Pérez",
-      "id": 1,
-      "proyectos": [
-        "Gestión de Aplicaciones"
-      ],
-      "tareas": [
-        "Desarrollo del Módulo de Login",
-        "Implementación de Pruebas Unitarias"
-      ],
-      "contrasena": "holaAdios324"
+      "id": 1
     },
     {
       "nombre": "Ana López",
-      "id": 2,
-      "proyectos": [
-        "Gestión de Aplicaciones"
-      ],
-      "tareas": [
-        "Diseño de la Interfaz de Usuario",
-        "Desarrollo del Módulo de Login"
-      ],
-      "contrasena": "holaAdios324"
+      "id": 2
     },
     {
       "nombre": "Carlos García",
-      "id": 3,
-      "proyectos": [
-        "Gestión de Aplicaciones"
-      ],
-      "tareas": [
-        "Configuración de la Base de Datos",
-        "Implementación de Pruebas Unitarias"
-      ],
-      "contrasena": "holaAdios324"
+      "id": 3
     },
     {
       "nombre": "hola",
@@ -104,6 +62,119 @@
     {
       "nombre": "dsa",
       "id": 7
+    },
+    {
+      "nombre": "MOHAMED EL REY DE LOS GORDOS",
+      "id": 8
+    },
+    {
+      "nombre": "sasa",
+      "id": 9
+    },
+    {
+      "nombre": "sasa",
+      "id": 10
+    },
+    {
+      "nombre": "as",
+      "id": 11
+    },
+    {
+      "nombre": "as",
+      "id": 12
+    },
+    {
+      "nombre": "BRUNO EL REY DE LOS ENANOS",
+      "id": 13
+    },
+    {
+      "nombre": "asas",
+      "id": 14
+    },
+    {
+      "nombre": "assa",
+      "id": 15
+    },
+    {
+      "nombre": "aaa",
+      "id": 16
+    },
+    {
+      "nombre": "asasss",
+      "id": 17
+    },
+    {
+      "nombre": "nsnsns",
+      "id": 18
+    }
+  ],
+  "nombreActualizable": [
+    {
+      "nombreProyecto": "Gestión de Aplicaciones",
+      "id": 1,
+      "colaboradores": [
+        1,
+        2,
+        3
+      ],
+      "imagenProyecto": 101,
+      "tareas": [
+        {},
+        {}
+      ]
+    },
+    {
+      "nombreProyecto": "MOHA",
+      "id": 2,
+      "colaboradores": [
+        1,
+        3,
+        6,
+        7
+      ],
+      "imagenProyecto": 0,
+      "tareas": null
+    },
+    {
+      "nombreProyecto": "MOHA",
+      "id": 4,
+      "colaboradores": [
+        1,
+        3,
+        6,
+        7
+      ],
+      "imagenProyecto": 0,
+      "tareas": null
+    },
+    {
+      "nombreProyecto": "l",
+      "id": 5,
+      "colaboradores": [
+        1,
+        5
+      ],
+      "imagenProyecto": 0,
+      "tareas": null
+    },
+    {
+      "nombreProyecto": "Bruno",
+      "id": 6,
+      "colaboradores": [
+        1
+      ],
+      "imagenProyecto": 0,
+      "tareas": null
+    },
+    {
+      "nombreProyecto": "Bruno",
+      "id": 7,
+      "colaboradores": [
+        1,
+        4
+      ],
+      "imagenProyecto": 0,
+      "tareas": null
     }
   ]
 }
