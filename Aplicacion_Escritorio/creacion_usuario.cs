@@ -16,18 +16,24 @@ namespace Aplicacion_Escritorio
 {
     public partial class creacion_usuario : Form
     {
-        List<Colaborador> colaboradores;
+       
         Tools tools = new Tools();
 
+        List<Colaborador> colaboradores = new List<Colaborador>();
         public creacion_usuario()
         {
             InitializeComponent();
             Tools tools = new Tools();
-            colaboradores = tools.ObtenerColaboradores();
-            foreach (var colaborador in colaboradores)
-            {
-                listaUsuarios.Items.Add(colaborador.nombre); // Aquí accedes al atributo Nombre
-            }
+            colaboradores = Form2.colaboradores;
+            mostrarListaUsuaros();
+        }
+
+
+        private void mostrarListaUsuaros()
+        {
+            listaUsuarios.DataSource = null;
+            listaUsuarios.DataSource = colaboradores;
+            listaUsuarios.DisplayMember = "nombre";
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -72,27 +78,18 @@ namespace Aplicacion_Escritorio
         private void saveUserData()
         {
             //String claveAES = generarClaveAES();
-
-            colaboradores = tools.ObtenerColaboradores();
             Colaborador ColaboradorFinal = colaboradores.Last();
             Colaborador colaborador = new Colaborador(ColaboradorFinal.id + 1, usuariocreateText.Text, contrasenyaconfirmText.Text);
             colaboradores.Add(colaborador);
-            listaUsuarios.Items.Add(colaborador.nombre); // Aquí accedes al atributo Nombre
+            mostrarListaUsuaros();// Aquí accedes al atributo Nombre
 
-
+            tools.actualizarArchivoJson(colaboradores, "Colaboradores");
             MessageBox.Show("Se ha creado el usuario correctamente");
             postCreation();
 
 
         }
-        private void saveUserDataJson()
-        {
-            tools.actualizarArchivoJson(colaboradores, "Colaboradores");
-            foreach (var colaboradors in colaboradores)
-            {
-                Console.WriteLine($"Nombre: {colaboradors.nombre}, ID: {colaboradors.id}");
-            }
-        }
+
         private void postCreation()
         {
             usuariocreateText.Text = "";
@@ -141,9 +138,10 @@ namespace Aplicacion_Escritorio
         {
             Form2 form2 = new Form2();
             form2.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
-            saveUserDataJson();                                                            // Crea una instancia del nuevo formulario
+            tools.actualizarArchivoJson(colaboradores, "Colaboradores");                           // Crea una instancia del nuevo formulario
             this.Hide(); // Oculta el formulario actual
             form2.Show();
+
         }
 
         private void eliminarUsuario_Click(object sender, EventArgs e)

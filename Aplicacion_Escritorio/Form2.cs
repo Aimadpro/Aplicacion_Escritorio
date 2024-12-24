@@ -1,22 +1,22 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Reflection.Emit;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Aplicacion_Escritorio
 {
     public partial class Form2 : Form
     {
+        private static readonly string Key = "123456"; // 16 caracteres para AES-128
         Tools tools = new Tools();
-        List<Proyecto> proyectos= new List<Proyecto>();
-         List<Colaborador> colaboradores;
+        public static List<Proyecto> proyectos= new List<Proyecto>();
+        public static  List<Colaborador> colaboradores;
+        Boolean cargado = false;
         public Form2()  
         {
             InitializeComponent();
@@ -30,28 +30,49 @@ namespace Aplicacion_Escritorio
         private void mostrarProyectos()
         {
             Tools tools = new Tools();
+         
             proyectos = tools.ObtenerProyectos();
+
             colaboradores = tools.ObtenerColaboradores();
+                cargado = false;    
+            
+
             cuadroProyectos.AutoGenerateColumns = false;
             cuadroProyectos.DataSource = proyectos;
             cuadroProyectos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "nombreProyecto",
                 HeaderText = "Nombre del Proyecto",
-                Name = "nombreProyecto"
+                Name = "nombreProyecto",
+                Width = 150
             });
 
             // Columna para los colaboradores
             cuadroProyectos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Colaboradores",
-                Name = "colaboradores"
+                Name = "colaboradores",
+                Width = 300 // Ajusta el ancho según tus necesidades
+
             });
+            cuadroProyectos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Tareas",
+                Name = "tareas",
+                Width = 300
+            });
+         
 
             cuadroProyectos.CellFormatting += cuadroProyectos_CellFormatting;
         }
         private void cuadroProyectos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (e.RowIndex < 0 || cuadroProyectos.Rows[e.RowIndex].DataBoundItem == null)
+            {
+                return; // Salimos si no hay datos
+            }
+
+            var fila = cuadroProyectos.Rows[e.RowIndex];
             // Verificamos si la columna es la de los colaboradores (por ejemplo, "Colaboradores")
             if (cuadroProyectos.Columns[e.ColumnIndex].Name == "colaboradores")
             {
@@ -75,6 +96,20 @@ namespace Aplicacion_Escritorio
 
                 // Asignamos los nombres de los colaboradores (se separan por coma)
                 e.Value = string.Join(", ", nombresColaboradores);
+            }
+            // Tareas
+            if (cuadroProyectos.Columns[e.ColumnIndex].Name == "tareas")
+            {
+                Proyecto proyecto = (Proyecto)cuadroProyectos.Rows[e.RowIndex].DataBoundItem;
+                if (proyecto.tareas != null)
+                {
+                    List<string> nombresTareas = proyecto.tareas
+                        .Select(t => t.nombreTarea)
+                        .Where(nombre => !string.IsNullOrEmpty(nombre))
+                        .ToList();
+
+                    e.Value = string.Join(", ", nombresTareas);
+                }
             }
         }
 
@@ -100,7 +135,7 @@ namespace Aplicacion_Escritorio
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            tools.actualizarArchivoJson(proyectos, "Proyectos");
+  
 
             FormNewProject formProject = new FormNewProject();
             formProject.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
@@ -123,7 +158,7 @@ namespace Aplicacion_Escritorio
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            tools.actualizarArchivoJson(proyectos, "Proyectos");
+            
 
             creacion_usuario newForm = new creacion_usuario();
             newForm.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
@@ -161,8 +196,7 @@ namespace Aplicacion_Escritorio
             }
             cuadroProyectos.DataSource = null;
             cuadroProyectos.DataSource = proyectos;
-            tools.actualizarArchivoJson(proyectos, "Proyectos");
-
+           
 
         }
 
@@ -178,7 +212,7 @@ namespace Aplicacion_Escritorio
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            tools.actualizarArchivoJson(proyectos, "Proyectos");
+           
         }
 
         private void pictureBox5_Click_1(object sender, EventArgs e)
@@ -197,8 +231,9 @@ namespace Aplicacion_Escritorio
                 // Obtener el objeto asociado a la fila (si está enlazada a datos)
                 proyectoSeleccionado = filaSeleccionada.DataBoundItem as Proyecto;
                 Modificar_proyecto newForm = new Modificar_proyecto(proyectoSeleccionado);
-                tools.actualizarArchivoJson(proyectos, "Proyectos");
+             
                 newForm.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
+                
                                                                         // Crea una instancia del nuevo formulario
                 this.Hide(); // Oculta el formulario actual
                 newForm.Show();
@@ -209,6 +244,50 @@ namespace Aplicacion_Escritorio
                 MessageBox.Show("Por favor, selecciona una fila.");
             }
             
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            saveJson();
+            /* LOGIA PARA ENCRIPTAR JSON
+           JObject parsedJson = tools.extraerJSON();
+          string json= parsedJson.ToString();
+                 EncryptJson(json); */
+            MessageBox.Show("Se ha almacenado correctamente en el Json");
+        }
+        public static string EncryptJson(string json)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(Key);
+                aes.IV = new byte[16]; // Vector de inicialización (16 bytes en AES-128)
+
+                using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
+                using (var ms = new MemoryStream())
+                {
+                    using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                    using (var writer = new StreamWriter(cs))
+                    {
+                        writer.Write(json);
+                    }
+                    return Convert.ToBase64String(ms.ToArray());
+                }
+            }
+        }
+        private void saveJson()
+        {
+            tools.actualizarArchivoJson(proyectos,"Proyectos");
+            tools.actualizarArchivoJson(colaboradores, "Colaboradores");
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,9 +63,49 @@ namespace Aplicacion_Escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boton_mod_tarea {
+            get {
+                object obj = ResourceManager.GetObject("boton_mod_tarea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boton_modificar_proyecto {
+            get {
+                object obj = ResourceManager.GetObject("boton_modificar_proyecto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boton_modificar_tarea {
+            get {
+                object obj = ResourceManager.GetObject("boton_modificar_tarea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boton_plus {
             get {
                 object obj = ResourceManager.GetObject("boton_plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boton_subtarea {
+            get {
+                object obj = ResourceManager.GetObject("boton_subtarea", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +136,26 @@ namespace Aplicacion_Escritorio.Properties {
         internal static System.Drawing.Bitmap f22def {
             get {
                 object obj = ResourceManager.GetObject("f22def", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flecha_atras {
+            get {
+                object obj = ResourceManager.GetObject("flecha_atras", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flecha_atras1 {
+            get {
+                object obj = ResourceManager.GetObject("flecha_atras1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

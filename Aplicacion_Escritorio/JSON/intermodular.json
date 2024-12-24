@@ -1,37 +1,211 @@
 {
   "Proyectos": [
     {
-      "tareas": null,
-      "nombreProyecto": "MOHA",
-      "id": 2,
+      "nombreProyecto": "los gitanos",
+      "id": 11,
       "colaboradores": [
         1,
         3,
-        6,
-        7
+        6
       ],
-      "imagenProyecto": 0
+      "imagenProyecto": 0,
+      "tareas": [
+        {
+          "fechaInicio": "2024-12-19T20:14:47",
+          "fechaFinal": "2024-12-02T20:14:47",
+          "nombreTarea": "HOLA QUE TAL",
+          "estadoTarea": "TO DO",
+          "colaboradores": [
+            {
+              "nombre": "Juan Pérez",
+              "id": 1
+            },
+            {
+              "nombre": "Carlos García",
+              "id": 3
+            },
+            {
+              "nombre": "dsa",
+              "id": 6
+            }
+          ],
+          "subTareas": null
+        },
+        {
+          "fechaInicio": "2024-12-19T20:14:47",
+          "fechaFinal": "2024-12-02T20:14:47",
+          "nombreTarea": "ashas",
+          "estadoTarea": "TO DO",
+          "colaboradores": [
+            {
+              "nombre": "Juan Pérez",
+              "id": 1
+            },
+            {
+              "nombre": "Carlos García",
+              "id": 3
+            },
+            {
+              "nombre": "dsa",
+              "id": 6
+            }
+          ],
+          "subTareas": [
+            {
+              "fechaInicio": "2024-12-17T17:02:12.9520045+01:00",
+              "fechaFinal": "2024-12-17T17:02:12.9520045+01:00",
+              "nombreTarea": "assa",
+              "estadoTarea": "DOING",
+              "colaboradores": [
+                {
+                  "nombre": "Juan Pérez",
+                  "id": 1
+                },
+                {
+                  "nombre": "Carlos García",
+                  "id": 3
+                },
+                {
+                  "nombre": "dsa",
+                  "id": 6
+                }
+              ],
+              "subTareas": null
+            }
+          ]
+        },
+        {
+          "fechaInicio": "2024-12-19T20:14:47",
+          "fechaFinal": "2024-12-02T20:14:47",
+          "nombreTarea": "ashas",
+          "estadoTarea": "TO DO",
+          "colaboradores": [
+            {
+              "nombre": "Juan Pérez",
+              "id": 1
+            },
+            {
+              "nombre": "Carlos García",
+              "id": 3
+            },
+            {
+              "nombre": "dsa",
+              "id": 6
+            }
+          ],
+          "subTareas": null
+        },
+        {
+          "fechaInicio": "2024-12-18T20:20:07.2472447+01:00",
+          "fechaFinal": "2024-12-18T20:20:07.2370523+01:00",
+          "nombreTarea": "asas",
+          "estadoTarea": "TO DO",
+          "colaboradores": [
+            {
+              "nombre": "Juan Pérez",
+              "id": 1
+            },
+            {
+              "nombre": "Carlos García",
+              "id": 3
+            },
+            {
+              "nombre": "dsa",
+              "id": 6
+            }
+          ],
+          "subTareas": null
+        },
+        {
+          "fechaInicio": "2024-12-19T20:14:47",
+          "fechaFinal": "2024-12-02T20:14:47",
+          "nombreTarea": "aaaaaaaa",
+          "estadoTarea": "TO DO",
+          "colaboradores": [
+            {
+              "nombre": "Juan Pérez",
+              "id": 1
+            },
+            {
+              "nombre": "Carlos García",
+              "id": 3
+            },
+            {
+              "nombre": "dsa",
+              "id": 6
+            }
+          ],
+          "subTareas": null
+        }
+      ]
     },
     {
-      "tareas": null,
-      "nombreProyecto": "MOHA",
-      "id": 3,
+      "nombreProyecto": "asas",
+      "id": 12,
       "colaboradores": [
         1,
         3,
-        6,
-        7
+        5,
+        8
       ],
-      "imagenProyecto": 0
+      "imagenProyecto": 0,
+      "tareas": []
     },
     {
-      "tareas": null,
-      "nombreProyecto": "Bruno",
-      "id": 6,
+      "nombreProyecto": "asas",
+      "id": 13,
       "colaboradores": [
-        1
+        1,
+        3
       ],
-      "imagenProyecto": 0
+      "imagenProyecto": 0,
+      "tareas": [
+        {
+          "fechaInicio": "2024-12-24T21:52:11.8786896+01:00",
+          "fechaFinal": "2024-12-24T21:52:11.87353+01:00",
+          "nombreTarea": "asas",
+          "estadoTarea": "DONE",
+          "colaboradores": [
+            {
+              "nombre": "Juan Pérez",
+              "id": 1
+            },
+            {
+              "nombre": "Carlos García",
+              "id": 3
+            }
+          ],
+          "subTareas": [
+            {
+              "fechaInicio": "2024-12-24T21:52:46.6805313+01:00",
+              "fechaFinal": "2024-12-24T21:52:46.6783845+01:00",
+              "nombreTarea": "asas",
+              "estadoTarea": "DONE",
+              "colaboradores": [
+                {
+                  "nombre": "Juan Pérez",
+                  "id": 1
+                },
+                {
+                  "nombre": "Carlos García",
+                  "id": 3
+                }
+              ],
+              "subTareas": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombreProyecto": "asas",
+      "id": 14,
+      "colaboradores": [
+        1,
+        3
+      ],
+      "imagenProyecto": 0,
+      "tareas": []
     }
   ],
   "Colaboradores": [
@@ -106,6 +280,46 @@
     {
       "nombre": "nsnsns",
       "id": 18
+    },
+    {
+      "nombre": "hhhhhhh",
+      "id": 19
+    },
+    {
+      "nombre": "aaaaaaaaaaaaaaaaaaaaa",
+      "id": 20
+    },
+    {
+      "nombre": "bbbb",
+      "id": 21
+    },
+    {
+      "nombre": "hhhhhhhhhhhhhhhhhhhh",
+      "id": 22
+    },
+    {
+      "nombre": "ñññññ",
+      "id": 23
+    },
+    {
+      "nombre": "ppppp",
+      "id": 24
+    },
+    {
+      "nombre": "bbbbbbbbbbb",
+      "id": 25
+    },
+    {
+      "nombre": "gggggg",
+      "id": 26
+    },
+    {
+      "nombre": "aaaaaa",
+      "id": 27
+    },
+    {
+      "nombre": "pedro sanchez",
+      "id": 28
     }
   ],
   "nombreActualizable": [

@@ -27,7 +27,7 @@ namespace Aplicacion_Escritorio
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(contrasenyaText.Text=="a" && usuarioText.Text == "a") {
+            if(contrasenyaText.Text=="admin" && usuarioText.Text == "admin") {
                 Form2 form2 = new Form2();
                 form2.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario en la pantalla
                                                                       // Crea una instancia del nuevo formulario

@@ -14,15 +14,15 @@ namespace Aplicacion_Escritorio
 {
     public partial class FormNewProject : Form
     {
-
+        Form2 f = new Form2();
         public FormNewProject()
         {
             InitializeComponent();
             // Lista de colaboradores
-            Tools tools = new Tools();
-            BindingList<Colaborador> colaboradores = new BindingList<Colaborador>(tools.ObtenerColaboradores());
-
-            // Configurar el ListView
+        
+            
+            List<Colaborador> colaboradores = Form2.colaboradores;
+            // Configurar el 
             elegirColaboradoresProyecto.DataSource = colaboradores;
             elegirColaboradoresProyecto.DisplayMember = "Nombre";
             elegirColaboradoresProyecto.ValueMember = "id";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
@@ -31,12 +31,6 @@ namespace Aplicacion_Escritorio
 
         private void FormNewProject_Load(object sender, EventArgs e)
         {
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-           
-
         }
         private List<int> obtenerIdColaboradores()
         {
@@ -59,25 +53,7 @@ namespace Aplicacion_Escritorio
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(projectName.Text))
-
-            {
-                Tools tools = new Tools();
-                BindingList<Proyecto> proyectos = new BindingList<Proyecto>(tools.ObtenerProyectos());
-                Proyecto proyectoUltimo = proyectos.Last();
-                List<int> selectedIds = obtenerIdColaboradores();
-                Proyecto proyecto = new Proyecto(projectName.Text, proyectoUltimo.id + 1, selectedIds);
-                proyecto.tareas = new List<Tarea>();
-                proyectos.Add(proyecto);
-                
-                tools.agregarObjeto(proyecto, "Proyectos");
-                foreach (var proyectoW in proyectos)
-                {
-                    Console.WriteLine($"Nombre: {proyectoW.nombreProyecto}, ID: {proyectoW.id}, selectedIds: {selectedIds}");
-
-                }
-
-            }
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,6 +76,30 @@ namespace Aplicacion_Escritorio
                                                                   // Crea una instancia del nuevo formulario
             this.Hide(); // Oculta el formulario actual
             form2.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(projectName.Text))
+
+            {
+                Tools tools = new Tools();
+                List<Proyecto> proyectos = Form2.proyectos;
+                Proyecto proyectoUltimo = proyectos.Last();
+                List<int> selectedIds = obtenerIdColaboradores();
+                List<Tarea> tareas = new List<Tarea>();
+                Proyecto proyecto = new Proyecto(projectName.Text, proyectoUltimo.id + 1, selectedIds, tareas);
+
+                proyectos.Add(proyecto);
+                MessageBox.Show("Se ha creado un nuevo proyecto");
+                tools.agregarObjeto(proyecto, "Proyectos");
+                proyectos.Add(proyecto);
+
+            }
+            else
+            {
+                MessageBox.Show("Añade algun nombre");
+            }
         }
     }
 }

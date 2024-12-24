@@ -92,6 +92,12 @@
     <Compile Include="RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Subtarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subtarea.Designer.cs">
+      <DependentUpon>Subtarea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tarea.cs" />
     <Compile Include="Tools.cs" />
     <EmbeddedResource Include="creacion_usuario.resx">
@@ -122,6 +128,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Subtarea.resx">
+      <DependentUpon>Subtarea.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -193,11 +202,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\boton_crearuser.png" />
+    <None Include="Resources\boton_modificar_proyecto.png" />
+    <None Include="Resources\boton_modificar_tarea.png" />
+    <None Include="Resources\boton_mod_tarea.png" />
     <Content Include="Resources\boton_siguiente.png" />
     <None Include="Resources\salir.png" />
     <None Include="Resources\lupaProyecto.png" />
     <None Include="Resources\eliminarProyecto.png" />
     <None Include="Resources\recuadroBoton.png" />
+    <None Include="Resources\boton_subtarea.png" />
+    <None Include="Resources\flecha_atras.png" />
+    <None Include="Resources\flecha_atras1.png" />
     <Content Include="Resources\recuadroProyectos.png" />
     <None Include="Resources\recuadroProyectos1.png" />
   </ItemGroup>

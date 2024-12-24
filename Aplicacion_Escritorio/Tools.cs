@@ -40,7 +40,7 @@ namespace Aplicacion_Escritorio
         }
         public JObject extraerJSON()
         {
-            string jsonPath = "D:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json";
+            string jsonPath = "E:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json";
             List<Colaborador> colaboradores = new List<Colaborador>();
             JObject parsedJson = new JObject();
             if (File.Exists(jsonPath))
@@ -69,7 +69,7 @@ namespace Aplicacion_Escritorio
             JObject nuevoColaborador = JObject.FromObject(os);
             colaboradoresArray.Add(nuevoColaborador);
            
-            File.WriteAllText("D:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json", parsedJson.ToString());
+            File.WriteAllText("E:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json", parsedJson.ToString());
 
 
         }
@@ -82,7 +82,7 @@ namespace Aplicacion_Escritorio
                 jsonObject[nombreActualizable] = listaElementosArray; // Actualiza la clave correspondiente en el JSON
 
                 // Guarda el JSON actualizado en el archivo
-                File.WriteAllText("D:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json", jsonObject.ToString());
+                File.WriteAllText("E:\\Aplicacion_Escritorio\\Aplicacion_Escritorio\\JSON\\intermodular.json", jsonObject.ToString());
             }
             catch (Exception ex)
             {

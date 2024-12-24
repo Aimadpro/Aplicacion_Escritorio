@@ -61,12 +61,11 @@
             this.inicioSesion.Controls.Add(this.usuarioText);
             this.inicioSesion.Controls.Add(this.contrasenyaText);
             this.inicioSesion.Controls.Add(this.button1);
-            this.inicioSesion.Location = new System.Drawing.Point(748, 222);
+            this.inicioSesion.Location = new System.Drawing.Point(188, 82);
             this.inicioSesion.Name = "inicioSesion";
             this.inicioSesion.Size = new System.Drawing.Size(461, 401);
             this.inicioSesion.TabIndex = 2;
             this.inicioSesion.TabStop = false;
-            this.inicioSesion.Text = "groupBox1";
             // 
             // pictureBox1
             // 
@@ -111,6 +110,7 @@
             // 
             this.contrasenyaText.Location = new System.Drawing.Point(152, 258);
             this.contrasenyaText.Name = "contrasenyaText";
+            this.contrasenyaText.PasswordChar = '·';
             this.contrasenyaText.Size = new System.Drawing.Size(157, 20);
             this.contrasenyaText.TabIndex = 2;
             // 
@@ -121,7 +121,7 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImage = global::Aplicacion_Escritorio.Properties.Resources.imagenfondoincio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(844, 627);
             this.Controls.Add(this.inicioSesion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
